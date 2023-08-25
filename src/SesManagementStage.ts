@@ -8,7 +8,6 @@ import { Statics } from './Statics';
 
 export interface SesManagementStageProps extends StageProps, Configurable { }
 
-
 export class SesManagementStage extends Stage {
   constructor(scope: Construct, id: string, props: SesManagementStageProps) {
     super(scope, id, props);
