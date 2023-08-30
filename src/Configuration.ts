@@ -74,6 +74,12 @@ export const configurations: { [key: string]: Configuration } = {
         emailDomain: 'dev.csp-nijmegen.nl',
         isAccountDomain: true,
       },
+      {
+        name: 'webforms-accp',
+        accountEnvironment: Statics.gnWebformsAccpEnvironment,
+        emailDomain: 'webforms-accp.csp-nijmegen.nl',
+        isAccountDomain: true,
+      },
     ],
   },
 };
