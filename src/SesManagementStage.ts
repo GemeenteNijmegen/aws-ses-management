@@ -58,6 +58,7 @@ class EmailIdentityConstruct extends Construct {
       console.warn('Note: DKIM records must be manually added to DNS!!');
       new ses.EmailIdentity(this, 'email', {
         identity: ses.Identity.domain(props.emailDomain),
+        mailFromDomain: props.emailDomain,
       });
     }
 
