@@ -50,6 +50,7 @@ class EmailIdentityConstruct extends Construct {
       });
       new ses.EmailIdentity(this, 'email', {
         identity: ses.Identity.publicHostedZone(accountHostedZone as IPublicHostedZone), // Do some type hacking
+        mailFromDomain: accountRootZoneName,
       });
     } else {
       if (!props.emailDomain) {
@@ -58,6 +59,7 @@ class EmailIdentityConstruct extends Construct {
       console.warn('Note: DKIM records must be manually added to DNS!!');
       new ses.EmailIdentity(this, 'email', {
         identity: ses.Identity.domain(props.emailDomain),
+        mailFromDomain: props.emailDomain,
       });
     }
 
