@@ -90,7 +90,7 @@ export const configurations: { [key: string]: Configuration } = {
         accountEnvironment: Statics.gnWebformsProdEnvironment,
         isAccountDomain: false,
         emailDomain: 'nijmegen.nl',
-        emailFromDomain: 'amazonses.nijmegen.nl'
+        emailFromDomain: 'amazonses.nijmegen.nl',
       },
     ],
   },
