@@ -53,6 +53,13 @@ export interface EmailIdentityConfiguration {
   emailDomain?: string;
 
   /**
+   * The domain to use for sending mails (MAIL FROM in aws console)
+   * Note: emailFromDomain must be a subdomain of emailDomain!
+   * Only required for non account domains.
+   */
+  emailFromDomain?: string;
+
+  /**
    * Only setup email for the account hostedzone
    * E.g. webforms-dev.csp-nijmegen.nl
    * Set to false for registering an additional additional email
@@ -71,14 +78,19 @@ export const configurations: { [key: string]: Configuration } = {
       {
         name: 'webforms-dev',
         accountEnvironment: Statics.gnWebformsDevEnvironment,
-        emailDomain: 'dev.csp-nijmegen.nl',
         isAccountDomain: true,
       },
       {
         name: 'webforms-accp',
         accountEnvironment: Statics.gnWebformsAccpEnvironment,
-        emailDomain: 'webforms-accp.csp-nijmegen.nl',
         isAccountDomain: true,
+      },
+      {
+        name: 'webforms-prod-nijmegen',
+        accountEnvironment: Statics.gnWebformsProdEnvironment,
+        isAccountDomain: false,
+        emailDomain: 'nijmegen.nl',
+        emailFromDomain: 'amazonses.nijmegen.nl',
       },
     ],
   },

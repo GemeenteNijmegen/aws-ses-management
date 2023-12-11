@@ -27,7 +27,7 @@ interface SesMemberAccountStackProps extends StackProps {
   configuration: EmailIdentityConfiguration;
 }
 
-class SesMemberAccountStack extends Stack {
+export class SesMemberAccountStack extends Stack {
   constructor(scope: Construct, id: string, props: SesMemberAccountStackProps) {
     super(scope, id, props);
     new EmailIdentityConstruct(this, 'identity', {
@@ -50,16 +50,16 @@ class EmailIdentityConstruct extends Construct {
       });
       new ses.EmailIdentity(this, 'email', {
         identity: ses.Identity.publicHostedZone(accountHostedZone as IPublicHostedZone), // Do some type hacking
-        mailFromDomain: accountRootZoneName,
+        mailFromDomain: `mail.${accountRootZoneName}`,
       });
     } else {
-      if (!props.emailDomain) {
-        throw Error(`Provide a emailDomain for the identity ${props.name}, as this is a non account hosted zone interfed domain name`);
+      if (!props.emailDomain || !props.emailFromDomain) {
+        throw Error(`Provide a emailDomain and emailFromDomain for the identity ${props.name}, as this is a non account hosted zone interfed domain name`);
       }
       console.warn('Note: DKIM records must be manually added to DNS!!');
       new ses.EmailIdentity(this, 'email', {
         identity: ses.Identity.domain(props.emailDomain),
-        mailFromDomain: props.emailDomain,
+        mailFromDomain: props.emailFromDomain,
       });
     }
 
