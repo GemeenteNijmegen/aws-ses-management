@@ -92,6 +92,11 @@ export const configurations: { [key: string]: Configuration } = {
         emailDomain: 'nijmegen.nl',
         emailFromDomain: 'amazonses.nijmegen.nl',
       },
+      {
+        name: 'sandbox-01-nijmegen',
+        accountEnvironment: Statics.gnSandbox01Environment,
+        isAccountDomain: true,
+      },
     ],
   },
 };
