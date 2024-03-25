@@ -12,8 +12,9 @@ export class Statics {
   static readonly AWS_ACCOUNT_WEBFORMS_DEV = '033598396027';
   static readonly AWS_ACCOUNT_WEBFORMS_ACCP = '338472043295';
   static readonly AWS_ACCOUNT_WEBFORMS_PROD = '147064197580';
-
   static readonly AWS_ACCOUNT_SANDBOX_01 = '833119272131';
+  static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_ACCP = '543802458112';
+  static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_PROD = '958875843009';
 
   // Pipelien values
   static readonly gnBuildCodeStarConnectionArn = 'arn:aws:codestar-connections:eu-central-1:836443378780:connection/9d20671d-91bc-49e2-8680-59ff96e2ab11';
@@ -47,6 +48,16 @@ export class Statics {
 
   static readonly gnSandbox01Environment = {
     account: Statics.AWS_ACCOUNT_SANDBOX_01,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnSocialeRechercheAccp = {
+    account: Statics.AWS_ACCOUNT_SOCIALE_RECHERCHE_ACCP,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnSocialeRechercheProd = {
+    account: Statics.AWS_ACCOUNT_SOCIALE_RECHERCHE_PROD,
     region: 'eu-central-1',
   };
 
