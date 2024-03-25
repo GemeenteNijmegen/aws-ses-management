@@ -97,6 +97,16 @@ export const configurations: { [key: string]: Configuration } = {
         accountEnvironment: Statics.gnSandbox01Environment,
         isAccountDomain: true,
       },
+      {
+        name: 'sociale-recherche-accp',
+        accountEnvironment: Statics.gnSocialeRechercheAccp,
+        isAccountDomain: true,
+      },
+      {
+        name: 'sociale-recherche-prod',
+        accountEnvironment: Statics.gnSocialeRechercheProd,
+        isAccountDomain: true,
+      },
     ],
   },
 };
