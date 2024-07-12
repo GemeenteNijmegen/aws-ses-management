@@ -15,6 +15,9 @@ export class Statics {
   static readonly AWS_ACCOUNT_SANDBOX_01 = '833119272131';
   static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_ACCP = '543802458112';
   static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_PROD = '958875843009';
+  static readonly AWS_ACCOUNT_SUBMISSION_STORAGE_DEV = '358927146986';
+  static readonly AWS_ACCOUNT_SUBMISSION_STORAGE_ACCP = '654654253219';
+  static readonly AWS_ACCOUNT_SUBMISSION_STORAGE_PROD = '606343885688';
 
   // Pipelien values
   static readonly gnBuildCodeStarConnectionArn = 'arn:aws:codestar-connections:eu-central-1:836443378780:connection/9d20671d-91bc-49e2-8680-59ff96e2ab11';
@@ -58,6 +61,21 @@ export class Statics {
 
   static readonly gnSocialeRechercheProd = {
     account: Statics.AWS_ACCOUNT_SOCIALE_RECHERCHE_PROD,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnSubmissionStorageDev = {
+    account: Statics.AWS_ACCOUNT_SUBMISSION_STORAGE_DEV,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnSubmissionStorageAccp = {
+    account: Statics.AWS_ACCOUNT_SUBMISSION_STORAGE_ACCP,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnSubmissionStorageProd = {
+    account: Statics.AWS_ACCOUNT_SUBMISSION_STORAGE_PROD,
     region: 'eu-central-1',
   };
 

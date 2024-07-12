@@ -107,6 +107,21 @@ export const configurations: { [key: string]: Configuration } = {
         accountEnvironment: Statics.gnSocialeRechercheProd,
         isAccountDomain: true,
       },
+      {
+        name: 'submission-storage-dev',
+        accountEnvironment: Statics.gnSubmissionStorageDev,
+        isAccountDomain: true,
+      },
+      {
+        name: 'submission-storage-accp',
+        accountEnvironment: Statics.gnSubmissionStorageAccp,
+        isAccountDomain: true,
+      },
+      {
+        name: 'submission-storage-prod',
+        accountEnvironment: Statics.gnSubmissionStorageProd,
+        isAccountDomain: true,
+      },
     ],
   },
 };
