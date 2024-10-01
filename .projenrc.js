@@ -1,14 +1,18 @@
 const { GemeenteNijmegenCdkApp } = require('@gemeentenijmegen/projen-project-type');
 const project = new GemeenteNijmegenCdkApp({
   cdkVersion: '2.1.0',
+  name: 'aws-ses-management',
+  repository: 'https://github.com/GemeenteNijmegen/aws-ses-management.git',
   defaultReleaseBranch: 'main',
   devDeps: ['@gemeentenijmegen/projen-project-type'],
-  name: 'aws-ses-management',
+  depsUpgradeOptions: {
+    workflowOptions: {
+      branches: ['main'], // No acceptance branch
+    },
+  },
+
   deps: [
     '@gemeentenijmegen/aws-constructs',
   ],
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 project.synth();
