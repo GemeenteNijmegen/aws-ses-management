@@ -122,6 +122,16 @@ export const configurations: { [key: string]: Configuration } = {
         accountEnvironment: Statics.gnSubmissionStorageProd,
         isAccountDomain: true,
       },
+      {
+        name: 'open-formulieren-accp',
+        accountEnvironment: Statics.gnOpenFormsAccp,
+        isAccountDomain: true,
+      },
+      {
+        name: 'open-formulieren-prod',
+        accountEnvironment: Statics.gnOpenFormsProd,
+        isAccountDomain: true,
+      },
     ],
   },
 };
