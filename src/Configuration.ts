@@ -67,6 +67,14 @@ export interface EmailIdentityConfiguration {
    * If set to true emailDomain will be ignored.
    */
   isAccountDomain: boolean;
+
+  /**
+   * Create SES SMTP credentials and store them in AWS Secrets Manager.
+   * Creates an IAM user with ses:SendRawEmail permission, derives the SMTP
+   * password from the IAM access key, and stores username/password/host/port
+   * at /ses/smtp-credentials/<name>.
+   */
+  enableSmtp?: boolean;
 }
 
 export const configurations: { [key: string]: Configuration } = {
@@ -136,6 +144,7 @@ export const configurations: { [key: string]: Configuration } = {
         name: 'kcc-infra-dev',
         accountEnvironment: Statics.gnKccInfraDev,
         isAccountDomain: true,
+        enableSmtp: true,
       },
     ],
   },

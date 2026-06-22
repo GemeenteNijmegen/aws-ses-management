@@ -1,4 +1,4 @@
-import { Stack, StackProps, Stage, StageProps, aws_ses as ses } from 'aws-cdk-lib';
+import { SecretValue, Stack, StackProps, Stage, StageProps, aws_iam as iam, aws_secretsmanager as secretsmanager, aws_ses as ses } from 'aws-cdk-lib';
 import { HostedZone, IPublicHostedZone } from 'aws-cdk-lib/aws-route53';
 import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct } from 'constructs';
@@ -63,7 +63,40 @@ class EmailIdentityConstruct extends Construct {
       });
     }
 
+    if (props.enableSmtp) {
+      this.setupSmtpUsers(props.name);
+    }
+
     // TODO check if it is usefull to export: EmailIdentity.emailIdentityName
 
   }
+
+  private setupSmtpUsers(name: string) {
+    const smtpDescription = `SES SMTP user for ${name}. `
+      + 'After deployment, derive the SMTP password from the secret access key using the AWS SES signing algorithm '
+      + '(see https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html) and update this secret manually.';
+
+    const smtpUser = new iam.User(this, 'SmtpUser');
+    smtpUser.addToPolicy(new iam.PolicyStatement({
+      actions: ['ses:SendRawEmail'],
+      resources: ['*'],
+    }));
+
+    const accessKey = new iam.CfnAccessKey(this, 'SmtpAccessKey', {
+      userName: smtpUser.userName,
+    });
+
+    new secretsmanager.Secret(this, 'SmtpCredentials', {
+      secretName: `/ses/smtp-credentials/${name}`,
+      description: smtpDescription,
+      secretObjectValue: {
+        username: SecretValue.unsafePlainText(accessKey.ref),
+        secret_access_key: SecretValue.unsafePlainText(accessKey.attrSecretAccessKey),
+        password: SecretValue.unsafePlainText('PLACEHOLDER - derive from secret_access_key, see description'),
+        host: SecretValue.unsafePlainText(`email-smtp.${Stack.of(this).region}.amazonaws.com`),
+        port: SecretValue.unsafePlainText('587'),
+      },
+    });
+  }
+
 }
