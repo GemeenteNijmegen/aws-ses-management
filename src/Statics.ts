@@ -20,6 +20,7 @@ export class Statics {
   static readonly AWS_ACCOUNT_SUBMISSION_STORAGE_PROD = '606343885688';
   static readonly AWS_ACCOUNT_OPEN_FORMS_ACCP = '043309345347';
   static readonly AWS_ACCOUNT_OPEN_FORMS_PROD = '761018864362';
+  static readonly AWS_ACCOUNT_KCC_INFRA_DEV = '111035763707';
 
   // Pipelien values
   static readonly gnBuildCodeStarConnectionArn = 'arn:aws:codestar-connections:eu-central-1:836443378780:connection/9d20671d-91bc-49e2-8680-59ff96e2ab11';
@@ -88,6 +89,11 @@ export class Statics {
 
   static readonly gnOpenFormsProd = {
     account: Statics.AWS_ACCOUNT_OPEN_FORMS_PROD,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnKccInfraDev = {
+    account: Statics.AWS_ACCOUNT_KCC_INFRA_DEV,
     region: 'eu-central-1',
   };
 

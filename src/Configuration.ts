@@ -132,6 +132,11 @@ export const configurations: { [key: string]: Configuration } = {
         accountEnvironment: Statics.gnOpenFormsProd,
         isAccountDomain: true,
       },
+      {
+        name: 'kcc-infra-dev',
+        accountEnvironment: Statics.gnKccInfraDev,
+        isAccountDomain: true,
+      },
     ],
   },
 };
