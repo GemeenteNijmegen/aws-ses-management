@@ -55,6 +55,7 @@ export class PipelineStack extends Stack {
           BRANCH_NAME: this.branchName,
         },
         commands: [
+          'npx projen install:ci',
           'npx projen build',
         ],
       }),
