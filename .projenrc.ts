@@ -4,7 +4,7 @@ const project = new GemeenteNijmegenCdkApp({
   name: 'aws-ses-management',
   repository: 'https://github.com/GemeenteNijmegen/aws-ses-management.git',
   defaultReleaseBranch: 'main',
-  devDeps: ['@gemeentenijmegen/projen-project-type'],
+  devDeps: [],
   depsUpgradeOptions: {
     workflowOptions: {
       branches: ['main'], // No acceptance branch
@@ -13,6 +13,7 @@ const project = new GemeenteNijmegenCdkApp({
   projenrcTs: true,
   deps: [
     '@gemeentenijmegen/aws-constructs',
+    '@gemeentenijmegen/projen-project-type'
   ],
 });
 project.synth();
