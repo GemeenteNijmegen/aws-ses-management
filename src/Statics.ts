@@ -9,9 +9,6 @@ export class Statics {
   // Shared accounts
   static readonly AWS_ACCOUNT_GN_BUILD = '836443378780';
   // Member accounts
-  static readonly AWS_ACCOUNT_WEBFORMS_DEV = '033598396027';
-  static readonly AWS_ACCOUNT_WEBFORMS_ACCP = '338472043295';
-  static readonly AWS_ACCOUNT_WEBFORMS_PROD = '147064197580';
   static readonly AWS_ACCOUNT_SANDBOX_01 = '833119272131';
   static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_ACCP = '543802458112';
   static readonly AWS_ACCOUNT_SOCIALE_RECHERCHE_PROD = '958875843009';
@@ -34,21 +31,6 @@ export class Statics {
 
   static readonly gnBuildEnvironment = {
     account: Statics.AWS_ACCOUNT_GN_BUILD,
-    region: 'eu-central-1',
-  };
-
-  static readonly gnWebformsDevEnvironment = {
-    account: Statics.AWS_ACCOUNT_WEBFORMS_DEV,
-    region: 'eu-central-1',
-  };
-
-  static readonly gnWebformsAccpEnvironment = {
-    account: Statics.AWS_ACCOUNT_WEBFORMS_ACCP,
-    region: 'eu-central-1',
-  };
-
-  static readonly gnWebformsProdEnvironment = {
-    account: Statics.AWS_ACCOUNT_WEBFORMS_PROD,
     region: 'eu-central-1',
   };
 
