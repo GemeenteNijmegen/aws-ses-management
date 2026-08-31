@@ -84,23 +84,6 @@ export const configurations: { [key: string]: Configuration } = {
     buildEnvironment: Statics.gnBuildEnvironment,
     emailIdentities: [
       {
-        name: 'webforms-dev',
-        accountEnvironment: Statics.gnWebformsDevEnvironment,
-        isAccountDomain: true,
-      },
-      {
-        name: 'webforms-accp',
-        accountEnvironment: Statics.gnWebformsAccpEnvironment,
-        isAccountDomain: true,
-      },
-      {
-        name: 'webforms-prod-nijmegen',
-        accountEnvironment: Statics.gnWebformsProdEnvironment,
-        isAccountDomain: false,
-        emailDomain: 'nijmegen.nl',
-        emailFromDomain: 'amazonses.nijmegen.nl',
-      },
-      {
         name: 'sandbox-01-nijmegen',
         accountEnvironment: Statics.gnSandbox01Environment,
         isAccountDomain: true,
