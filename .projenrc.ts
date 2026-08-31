@@ -13,7 +13,7 @@ const project = new GemeenteNijmegenCdkApp({
   projenrcTs: true,
   deps: [
     '@gemeentenijmegen/aws-constructs',
-    '@gemeentenijmegen/projen-project-type'
+    '@gemeentenijmegen/projen-project-type',
   ],
 });
 project.synth();
