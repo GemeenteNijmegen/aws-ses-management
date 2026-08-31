@@ -1,4 +1,5 @@
 import { PermissionsBoundaryAspect } from '@gemeentenijmegen/aws-constructs';
+import { getNodeVersion } from '@gemeentenijmegen/projen-project-type';
 import {
   Aspects,
   Stack,
@@ -6,20 +7,21 @@ import {
   Tags,
   pipelines,
 } from 'aws-cdk-lib';
+import { BuildSpec } from 'aws-cdk-lib/aws-codebuild';
 import { Construct } from 'constructs';
 import { Configurable } from './Configuration';
 import { SesManagementStage } from './SesManagementStage';
 import { Statics } from './Statics';
 
 
-export interface PipelineStackProps extends StackProps, Configurable {}
+export interface PipelineStackProps extends StackProps, Configurable { }
 
 export class PipelineStack extends Stack {
 
   branchName: string;
 
   constructor(scope: Construct, id: string, props: PipelineStackProps) {
-    super (scope, id, props);
+    super(scope, id, props);
     Tags.of(this).add('cdkManaged', 'yes');
     Tags.of(this).add('project', Statics.projectName);
     Aspects.of(this).add(new PermissionsBoundaryAspect());
@@ -57,6 +59,17 @@ export class PipelineStack extends Stack {
           'yarn build',
         ],
       }),
+      synthCodeBuildDefaults: {
+        partialBuildSpec: BuildSpec.fromObject({
+          phases: {
+            install: {
+              'runtime-versions': {
+                nodejs: getNodeVersion(),
+              },
+            },
+          },
+        }),
+      },
     });
     return pipeline;
   }
