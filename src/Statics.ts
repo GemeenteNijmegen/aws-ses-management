@@ -18,6 +18,9 @@ export class Statics {
   static readonly AWS_ACCOUNT_OPEN_FORMS_ACCP = '043309345347';
   static readonly AWS_ACCOUNT_OPEN_FORMS_PROD = '761018864362';
   static readonly AWS_ACCOUNT_KCC_INFRA_DEV = '111035763707';
+  static readonly AWS_ACCOUNT_MULE_GRAFANA_DEV = '013052902779';
+  static readonly AWS_ACCOUNT_MULE_GRAFANA_ACCP = '938595516784';
+  static readonly AWS_ACCOUNT_MULE_GRAFANA_PROD = '664926621746';
 
   // Pipelien values
   static readonly gnBuildCodeStarConnectionArn = 'arn:aws:codestar-connections:eu-central-1:836443378780:connection/9d20671d-91bc-49e2-8680-59ff96e2ab11';
@@ -76,6 +79,21 @@ export class Statics {
 
   static readonly gnKccInfraDev = {
     account: Statics.AWS_ACCOUNT_KCC_INFRA_DEV,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnMuleGrafanaDev = {
+    account: Statics.AWS_ACCOUNT_MULE_GRAFANA_DEV,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnMuleGrafanaAccp = {
+    account: Statics.AWS_ACCOUNT_MULE_GRAFANA_ACCP,
+    region: 'eu-central-1',
+  };
+
+  static readonly gnMuleGrafanaProd = {
+    account: Statics.AWS_ACCOUNT_MULE_GRAFANA_PROD,
     region: 'eu-central-1',
   };
 
