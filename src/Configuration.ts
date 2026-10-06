@@ -129,6 +129,24 @@ export const configurations: { [key: string]: Configuration } = {
         isAccountDomain: true,
         enableSmtp: true,
       },
+      {
+        name: 'mule-infra-dev',
+        accountEnvironment: Statics.gnMuleGrafanaDev,
+        isAccountDomain: true,
+        enableSmtp: true,
+      },
+      {
+        name: 'mule-infra-accp',
+        accountEnvironment: Statics.gnMuleGrafanaAccp,
+        isAccountDomain: true,
+        enableSmtp: true,
+      },
+      {
+        name: 'mule-infra-prod',
+        accountEnvironment: Statics.gnMuleGrafanaProd,
+        isAccountDomain: true,
+        enableSmtp: true,
+      },
     ],
   },
 };
